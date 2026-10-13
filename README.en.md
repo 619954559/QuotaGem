@@ -1,6 +1,14 @@
 # QuotaGem
 
-[繁體中文](./README.md) | English
+[简体中文](./README.md) | English
+
+## Fork and localization
+
+This is [619954559/QuotaGem](https://github.com/619954559/QuotaGem), a Simplified Chinese fork of [gyozalab/QuotaGem](https://github.com/gyozalab/QuotaGem). Fork version **2.0.2** is based on upstream **2.0.1** and maintained by 619954559. Original author credits and license information are preserved.
+
+Simplified Chinese covers the usage panel, settings, tray menu, notifications, and Claude login window title, and is the default for new installations. English, Traditional Chinese, and saved language preferences remain supported. Functionality, layout, and usage collection behavior are unchanged. Preview images are inherited from upstream and may contain Traditional Chinese text.
+
+[Download this fork’s portable build](https://github.com/619954559/QuotaGem/releases/latest) · [Release notes](./RELEASE_NOTES.md)
 
 <img src="./docs/images/cover.png" alt="QuotaGem" width="100%" />
 
@@ -87,14 +95,14 @@ QuotaGem detects the signed-in local Antigravity language server and calls a rea
 - Automatic refresh and manual refresh.
 - Dark and light themes.
 - Transparency, scale, time format, and date format settings.
-- Traditional Chinese and English UI languages.
+- Simplified Chinese, Traditional Chinese, and English UI languages.
 - Launch-at-login support. For portable builds, running the moved exe once refreshes the startup path.
 
 Under the hood it is built on Tauri (Rust + the system WebView2), so the download is a few MB and it sips memory while sitting in your tray all day.
 
 ## Download
 
-Go to the [Releases](https://github.com/gyozalab/QuotaGem/releases) page and download the latest portable package (`QuotaGem_*_x64-portable.zip`). Extract it, run `quotagem.exe`, and enable launch-at-login from the settings panel if you want QuotaGem to start with Windows.
+Go to the [Releases](https://github.com/619954559/QuotaGem/releases) page and download the latest portable package (`QuotaGem_*_zh-CN_x64-portable.zip`). Extract it, run `quotagem.exe`, and enable launch-at-login from the settings panel if you want QuotaGem to start with Windows.
 
 Launch-at-login points to the current `quotagem.exe` path; if you move the app, run it once from the new location to refresh the Windows startup entry.
 
@@ -105,7 +113,7 @@ QuotaGem 2.0 is built with Tauri 2, Rust, React, and TypeScript.
 Built with Tauri 2 (Rust + React). You need the Rust toolchain and Node.js installed.
 
 ```powershell
-git clone https://github.com/gyozalab/QuotaGem.git
+git clone https://github.com/619954559/QuotaGem.git
 cd QuotaGem
 npm install
 npx tauri dev      # development

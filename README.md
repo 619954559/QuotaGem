@@ -2,6 +2,14 @@
 
 简体中文 | [English](./README.en.md)
 
+## Fork 与汉化说明
+
+本仓库是 [619954559/QuotaGem](https://github.com/619954559/QuotaGem)，fork 自 [gyozalab/QuotaGem](https://github.com/gyozalab/QuotaGem)。当前 fork 版本为 **2.0.2**，基于上游 **2.0.1**，由 619954559 维护简体中文本地化；原作者与上游贡献者的署名和许可信息保留。
+
+汉化覆盖用量面板、设置、托盘菜单、通知和 Claude 登录窗口标题。新安装默认使用简体中文，原有英文、繁体中文和已有语言设置仍保留；功能、布局及用量读取机制保持上游行为。README 预览图片沿用上游，图片内的文字可能仍为繁体中文。
+
+[下载本 fork 的简体中文免安装版](https://github.com/619954559/QuotaGem/releases/latest) · [2.0.2 更新说明](./RELEASE_NOTES.md)
+
 <img src="./docs/images/cover.png" alt="QuotaGem" width="100%" />
 
 一个为 `Claude`、`Codex` 与 `Antigravity` 用量而生的 Windows 系统托盘小工具。
@@ -94,9 +102,9 @@
 
 ## 下载使用
 
-本 fork 新增简体中文界面、托盘菜单和用量通知；新安装默认使用简体中文。已有安装可在设置中选择“简体中文”。以下上游下载提供原版程序，尚不包含本 fork 的简体中文修改；请按下方步骤从本仓库构建。原有功能和外观保持不变，预览图片沿用上游版本。
+已有安装可在设置中选择“简体中文”。本 fork 的 Release 提供预编译的 Windows x64 简体中文免安装包，无需自行安装 Rust 或 Node.js。
 
-前往 [Releases](https://github.com/gyozalab/QuotaGem/releases) 页面，下载最新的免安装版（`QuotaGem_*_x64-portable.zip`）。解压缩后运行 `quotagem.exe`，需要跟着 Windows 启动时，再到设置面板打开开机自启。
+前往 [Releases](https://github.com/619954559/QuotaGem/releases) 页面，下载最新的免安装版（`QuotaGem_*_zh-CN_x64-portable.zip`）。解压缩后运行 `quotagem.exe`，需要跟着 Windows 启动时，再到设置面板打开开机自启。
 
 开机自启会指向目前运行的 `quotagem.exe` 路径；如果你搬动 exe，从新位置运行一次即可更新 Windows 开机启动项。
 
@@ -127,5 +135,7 @@ npm run package:portable
 portable zip 会输出到：
 
 ```text
-src-tauri\target\release\bundle\portable\QuotaGem_2.0.1_x64-portable.zip
+src-tauri\target\release\bundle\portable\QuotaGem_2.0.2_x64-portable.zip
 ```
+
+GitHub Actions 发布包命名为 `QuotaGem_2.0.2_zh-CN_x64-portable.zip`，随包提供 `SHA256SUMS.txt`。本地打包脚本仍使用上述通用文件名。
