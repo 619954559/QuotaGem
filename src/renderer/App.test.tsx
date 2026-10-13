@@ -253,7 +253,10 @@ describe("App", () => {
     });
   });
 
-  it("lets people choose a language from settings and saves the preference", async () => {
+  it.each([
+    ["zh-TW", "儲存設定"],
+    ["zh-CN", "保存设置"],
+  ])("lets people choose %s from settings and saves the preference", async (locale, saveLabel) => {
     render(<App />);
 
     await userEvent.click(
@@ -262,13 +265,13 @@ describe("App", () => {
 
     const languageSelect = await screen.findByLabelText("Language");
 
-    await userEvent.selectOptions(languageSelect, "zh-TW");
-    await userEvent.click(screen.getByRole("button", { name: "儲存設定" }));
+    await userEvent.selectOptions(languageSelect, locale);
+    await userEvent.click(screen.getByRole("button", { name: saveLabel }));
 
     await waitFor(() => {
       expect(window.trayUsageWidget.saveSettings).toHaveBeenCalledWith(
         expect.objectContaining({
-          language: "zh-TW",
+          language: locale,
         }),
       );
     });

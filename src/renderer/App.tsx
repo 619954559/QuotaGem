@@ -67,7 +67,7 @@ function App() {
       dangerThreshold: 90,
       notificationsEnabled: true,
       notificationLevel: "all",
-      language: "zh-TW",
+      language: "zh-CN",
       timeDisplay: "utc",
       timeFormat: "24h",
       dateFormat: "iso",
@@ -281,6 +281,7 @@ function App() {
               >
                 <option value="en">{t(language, "english")}</option>
                 <option value="zh-TW">{t(language, "traditionalChinese")}</option>
+                <option value="zh-CN">{t(language, "simplifiedChinese")}</option>
               </select>
             </label>
             <label className="settings-field">
