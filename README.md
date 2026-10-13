@@ -1,115 +1,117 @@
 # QuotaGem
 
-繁體中文 | [English](./README.en.md)
+简体中文 | [English](./README.en.md)
 
 <img src="./docs/images/cover.png" alt="QuotaGem" width="100%" />
 
-一個為 `Claude`、`Codex` 與 `Antigravity` 用量而生的 Windows 系統匣小工具。
+一个为 `Claude`、`Codex` 与 `Antigravity` 用量而生的 Windows 系统托盘小工具。
 
-它讓你不用一直打開網頁或切換分頁，就能在桌面上快速看到：
+它让你不用一直打开网页或切换分页，就能在桌面上快速看到：
 
 - 目前用量
-- 五小時（Session）與每週（Weekly）狀態
-- 重設時間
-- 警告與危險門檻
+- 五小时（Session）与每周（Weekly）状态
+- 重置时间
+- 警告与危险阈值
 
-## 2.0 有什麼新的
+## 2.0 有什么新的
 
-- 🆕 新增 `Antigravity` 第三 provider，自動拆成 `Gemini` 與 `Claude and GPT` 兩軌
-- 🔄 精簡面板改成圓環設計，主顯五小時額度，每週用量收進 hover
-- 🛡️ 單一實例保護，重複開啟或開機自啟都只會有一個視窗
-- 📦 改用 Tauri 2 重寫，提供免安裝版，體積更小、更省記憶體
-- 🚀 開機自啟會跟著目前執行的 `quotagem.exe` 路徑更新，搬動免安裝版後再開一次即可
+- 🆕 添加 `Antigravity` 第三 provider，自动拆成 `Gemini` 与 `Claude and GPT` 两轨
+- 🔄 精简面板改成圆环设计，主显五小时额度，每周用量收进 hover
+- 🛡️ 单一实例保护，重复打开或开机自启都只会有一个窗口
+- 📦 改用 Tauri 2 重写，提供免安装版，体积更小、更省内存
+- 🚀 开机自启会跟着目前运行的 `quotagem.exe` 路径更新，搬动免安装版后再开一次即可
 
-## 畫面預覽
+## 画面预览
 
-### 展開面板
+### 展开面板
 
-<img src="./docs/images/expanded-panel.png" alt="QuotaGem 展開面板，同時顯示 Claude、Codex 與 Antigravity 用量" width="66%" />
+<img src="./docs/images/expanded-panel.png" alt="QuotaGem 展开面板，同时显示 Claude、Codex 与 Antigravity 用量" width="66%" />
 
-### 精簡面板
+### 精简面板
 
-<img src="./docs/images/compact-panel.png" alt="QuotaGem 精簡面板，三個 provider 的圓環設計，Antigravity 以雙色分割環顯示" width="66%" />
+<img src="./docs/images/compact-panel.png" alt="QuotaGem 精简面板，三个 provider 的圆环设计，Antigravity 以双色分割环显示" width="66%" />
 
-### 用量警告與危險提醒
+### 用量警告与危险提醒
 
-<img src="./docs/images/expanded-panel-alerts.png" alt="QuotaGem 展開面板顯示警告與危險門檻提醒" width="66%" />
+<img src="./docs/images/expanded-panel-alerts.png" alt="QuotaGem 展开面板显示警告与危险阈值提醒" width="66%" />
 
-### 設定面板
+### 设置面板
 
-<img src="./docs/images/settings-panel.png" alt="QuotaGem 設定面板" width="66%" />
+<img src="./docs/images/settings-panel.png" alt="QuotaGem 设置面板" width="66%" />
 
-### 淺色主題
+### 浅色主题
 
 <p>
-  <img src="./docs/images/expanded-panel-white.png" alt="QuotaGem 淺色展開面板" width="49%" />
-  <img src="./docs/images/compact-panel-white.png" alt="QuotaGem 淺色精簡面板" width="49%" />
+  <img src="./docs/images/expanded-panel-white.png" alt="QuotaGem 浅色展开面板" width="49%" />
+  <img src="./docs/images/compact-panel-white.png" alt="QuotaGem 浅色精简面板" width="49%" />
 </p>
 
-### 系統匣圖示
+### 系统托盘图标
 
-<img src="./docs/images/tray-icon-list.png" alt="QuotaGem 系統匣圖示" width="33%" />
+<img src="./docs/images/tray-icon-list.png" alt="QuotaGem 系统托盘图标" width="33%" />
 
-## 支援的用量來源
+## 支持的用量来源
 
-- 系統匣常駐，打開就看
-- `expanded` 與 `compact` 兩種面板
-- 同時查看 `Claude`、`Codex` 與 `Antigravity`
-- `Antigravity` 會分開顯示 `Gemini` 與 `Claude and GPT` 用量
-- 也可以自由選擇只顯示其中一兩個
-- 精簡面板直接顯示五小時額度，每週用量收在 hover 提示裡
-- 自訂警告與危險門檻
+- 系统托盘常驻，打开就看
+- `expanded` 与 `compact` 两种面板
+- 同时查看 `Claude`、`Codex` 与 `Antigravity`
+- `Antigravity` 会分开显示 `Gemini` 与 `Claude and GPT` 用量
+- 也可以自由选择只显示其中一两个
+- 精简面板直接显示五小时额度，每周用量收在 hover 提示里
+- 自订警告与危险阈值
 - 背景通知提醒
-- 可調整主題、透明度與縮放
-- 開機自啟，跟著 Windows 一起醒來
-- 繁體中文與英文介面切換
-- 內建 `Connect Claude` 流程
+- 可调整主题、透明度与缩放
+- 开机自启，跟着 Windows 一起醒来
+- 简体中文、繁体中文与英文界面切换
+- 内置 `Connect Claude` 流程
 
-透過內建 `Connect Claude` 流程取得必要 session 資訊，並用後端直接讀取 Claude 用量狀態。2.0 不再依賴隱藏瀏覽器視窗。
+通过内置 `Connect Claude` 流程取得必要 session 信息，并用后端直接读取 Claude 用量状态。2.0 不再依赖隐藏浏览器窗口。
 
 ### Codex
 
-優先透過本機 `codex app-server` 讀取帳號層 rate limit，顯示包含桌面版背景消耗在內的即時額度狀態。若 app-server 無法取得資料，會 fallback 到 `.codex/sessions` 的 session JSONL 解析。
+优先通过本机 `codex app-server` 读取帐号层 rate limit，显示包含桌面版背景消耗在内的即时额度状态。若 app-server 无法取得数据，会 fallback 到 `.codex/sessions` 的 session JSONL 解析。
 
 ### Antigravity
 
-偵測本機已登入的 Antigravity language server，透過唯讀 RPC 取得額度摘要。QuotaGem 只讀取額度，不送出 prompt，也不消耗模型額度。
+侦测本机已登录的 Antigravity language server，通过唯读 RPC 取得额度摘要。QuotaGem 只读取额度，不送出 prompt，也不消耗模型额度。
 
 ## 功能
 
-- Windows 系統匣常駐，左鍵開關面板，右鍵顯示選單。
-- `compact` 與 `expanded` 兩種面板。
-- 三個 provider 可自由顯示或隱藏。
-- 五小時與每週用量視覺化。
-- 自訂 warning / danger 門檻。
-- Windows 通知，可選全部通知或只通知危險狀態。
-- 同一門檻跨刷新去重，避免重複提醒。
-- 自動刷新與手動立即刷新。
-- 深色與淺色主題。
-- 透明度、縮放、時間格式與日期格式設定。
-- 繁體中文與英文介面。
-- 開機自啟，portable exe 搬動後重新執行即可更新啟動路徑。
+- Windows 系统托盘常驻，左键开关面板，右键显示菜单。
+- `compact` 与 `expanded` 两种面板。
+- 三个 provider 可自由显示或隐藏。
+- 五小时与每周用量可视化。
+- 自订 warning / danger 阈值。
+- Windows 通知，可选全部通知或只通知危险状态。
+- 同一阈值跨刷新去重，避免重复提醒。
+- 自动刷新与手动立即刷新。
+- 深色与浅色主题。
+- 透明度、缩放、时间格式与日期格式设置。
+- 简体中文、繁体中文与英文界面。
+- 开机自启，portable exe 搬动后重新运行即可更新启动路径。
 
-底層用 Tauri（Rust + 系統內建 WebView2）打造，免安裝版個位數 MB、記憶體佔用低，常駐一整天也很安靜。
+底层用 Tauri（Rust + 系统内置 WebView2）打造，免安装版个位数 MB、内存占用低，常驻一整天也很安静。
 
-## 下載使用
+## 下载使用
 
-前往 [Releases](https://github.com/gyozalab/QuotaGem/releases) 頁面，下載最新的免安裝版（`QuotaGem_*_x64-portable.zip`）。解壓縮後執行 `quotagem.exe`，需要跟著 Windows 啟動時，再到設定面板開啟開機自啟。
+本 fork 新增简体中文界面、托盘菜单和用量通知；新安装默认使用简体中文。已有安装可在设置中选择“简体中文”。以下上游下载提供原版程序，尚不包含本 fork 的简体中文修改；请按下方步骤从本仓库构建。原有功能和外观保持不变，预览图片沿用上游版本。
 
-開機自啟會指向目前執行的 `quotagem.exe` 路徑；如果你搬動 exe，從新位置執行一次即可更新 Windows 開機啟動項。
+前往 [Releases](https://github.com/gyozalab/QuotaGem/releases) 页面，下载最新的免安装版（`QuotaGem_*_x64-portable.zip`）。解压缩后运行 `quotagem.exe`，需要跟着 Windows 启动时，再到设置面板打开开机自启。
 
-## 開發
+开机自启会指向目前运行的 `quotagem.exe` 路径；如果你搬动 exe，从新位置运行一次即可更新 Windows 开机启动项。
 
-QuotaGem 2.0 使用 Tauri 2、Rust、React 與 TypeScript。
+## 开发
 
-以 Tauri 2（Rust + React）開發，需先安裝 Rust 工具鏈與 Node.js。
+QuotaGem 2.0 使用 Tauri 2、Rust、React 与 TypeScript。
+
+以 Tauri 2（Rust + React）开发，需先安装 Rust 工具链与 Node.js。
 
 ```powershell
-git clone https://github.com/gyozalab/QuotaGem.git
+git clone https://github.com/619954559/QuotaGem.git
 cd QuotaGem
 npm install
-npx tauri dev      # 開發模式
-npx tauri build    # 建置 app 與 Windows bundle
+npx tauri dev      # 开发模式
+npx tauri build    # 建置 app 与 Windows bundle
 npm run package:portable
 ```
 
@@ -122,7 +124,7 @@ npm run tauri:build
 npm run package:portable
 ```
 
-portable zip 會輸出到：
+portable zip 会输出到：
 
 ```text
 src-tauri\target\release\bundle\portable\QuotaGem_2.0.1_x64-portable.zip
