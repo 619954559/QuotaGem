@@ -45,7 +45,9 @@ function buildLastUpdatedLabel(
   }
 
   const date = new Date(latestTimestamp);
-  const locale = preferences.language === "zh-TW" ? "zh-TW" : "en-US";
+  const locale = preferences.language === "zh-CN"
+    ? "zh-CN"
+    : preferences.language === "zh-TW" ? "zh-TW" : "en-US";
   const parts = new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "2-digit",
