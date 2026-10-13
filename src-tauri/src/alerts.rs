@@ -107,7 +107,13 @@ fn build_scopes(snapshot: &UsageSnapshot) -> Vec<AlertScope> {
 /// session/weekly 軌道的在地化標籤（對應 1.0 i18n key `session` / `weekly`）。
 fn metric_label(language: &str, metric: &str) -> &'static str {
     let is_session = metric == "session";
-    if language == "zh-TW" {
+    if language == "zh-CN" {
+        if is_session {
+            "每五小时"
+        } else {
+            "每周"
+        }
+    } else if language == "zh-TW" {
         if is_session {
             "每五小時"
         } else {
@@ -135,7 +141,9 @@ fn build_alert(
     let metric = metric_label(language, metric);
     let percent = percent.round() as i64;
 
-    let body = if language == "zh-TW" {
+    let body = if language == "zh-CN" {
+        format!("{provider} 的 {metric} 用量已达 {percent}%。")
+    } else if language == "zh-TW" {
         format!("{provider} 的 {metric} 用量已達 {percent}%。")
     } else {
         format!("{provider} {metric} usage reached {percent}%.")
@@ -497,5 +505,18 @@ mod tests {
         assert_eq!(alerts.len(), 1);
         assert_eq!(alerts[0].title, "QuotaGem");
         assert_eq!(alerts[0].body, "Claude 的 每五小時 用量已達 80%。");
+    }
+
+    #[test]
+    fn localized_alert_body_zh_cn() {
+        let mut tracker = AlertTracker::new();
+        let normal = vec![make_snapshot(ProviderId::Claude, "Claude", 50.0, 30.0)];
+        let warning = vec![make_snapshot(ProviderId::Claude, "Claude", 80.0, 80.0)];
+        tracker.consume(&normal, 75, 90, true, "all", "zh-CN");
+        let alerts = tracker.consume(&warning, 75, 90, true, "all", "zh-CN");
+        assert_eq!(alerts.len(), 2);
+        assert_eq!(alerts[0].title, "QuotaGem");
+        assert_eq!(alerts[0].body, "Claude 的 每五小时 用量已达 80%。");
+        assert_eq!(alerts[1].body, "Claude 的 每周 用量已达 80%。");
     }
 }

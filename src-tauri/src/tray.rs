@@ -27,7 +27,9 @@ pub fn menu_action(id: &str) -> Option<MenuAction> {
 /// 托盤選單標籤的在地化（對齊 1.0：選單跟著語言切換，不寫死）。
 /// 對應 i18n key `settings` / `quit`。
 fn menu_labels(language: &str) -> (&'static str, &'static str) {
-    if language == "zh-TW" {
+    if language == "zh-CN" {
+        ("设置", "退出")
+    } else if language == "zh-TW" {
         ("設定", "結束")
     } else {
         ("Settings", "Quit")
@@ -110,6 +112,7 @@ mod tests {
 
     #[test]
     fn menu_labels_localize_by_language() {
+        assert_eq!(menu_labels("zh-CN"), ("设置", "退出"));
         assert_eq!(menu_labels("zh-TW"), ("設定", "結束"));
         assert_eq!(menu_labels("en"), ("Settings", "Quit"));
         // 未知語言 fallback 英文（對齊 i18n t() 的 fallback）

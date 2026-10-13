@@ -135,7 +135,11 @@ async fn connect_claude(
     "claude_login",
     tauri::WebviewUrl::App("https://claude.ai/login".parse().unwrap()),
   )
-  .title("Log in to Claude")
+  .title(match preferences.language.as_str() {
+    "zh-CN" => "登录 Claude",
+    "zh-TW" => "登入 Claude",
+    _ => "Log in to Claude",
+  })
   .inner_size(1000.0, 700.0)
   .focused(true)
   .resizable(true)
