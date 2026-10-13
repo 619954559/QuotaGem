@@ -2,11 +2,20 @@ name: Windows Simplified Chinese portable
 
 on:
   workflow_dispatch:
+    inputs:
+      publish:
+        description: Publish the versioned portable release
+        type: boolean
+        default: false
   push:
     branches: [main]
 
 permissions:
   contents: read
+
+concurrency:
+  group: portable-${{ github.ref }}
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -43,3 +52,24 @@ jobs:
           path: portable-output/*
           if-no-files-found: error
           retention-days: 30
+
+  publish:
+    needs: build
+    if: github.event_name == 'workflow_dispatch' && inputs.publish
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4
+        with:
+          name: QuotaGem-zh-CN-windows-x64-portable
+          path: portable-output
+      - name: Publish portable release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          version=$(node -p "require('./package.json').version")
+          gh release create "v${version}" portable-output/*.zip portable-output/SHA256SUMS.txt \
+            --target "$GITHUB_SHA" --title "QuotaGem ${version} 简体中文免安装版" \
+            --notes-file RELEASE_NOTES.md --latest
